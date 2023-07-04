@@ -1,0 +1,121 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #111111;
+}
+
+.container {
+  margin: 2rem 4rem;
+}
+.header > h1 {
+  padding: 1rem 0.3rem;
+  color: white;
+  font-weight: 100;
+  letter-spacing: 0.1rem;
+}
+input[type="text"],
+[type="number"],
+[type="email"],
+[type="search"] {
+  padding: 0 1rem;
+}
+.inputs input {
+  height: 2.5rem;
+  width: 23.6rem;
+  border: 1px solid #747474;
+  background-color: #111111;
+  color: white;
+  display: inline-block;
+  margin-right: 2rem;
+  margin-bottom: 1rem;
+}
+.inputs button {
+  display: block;
+  width: 25rem;
+  height: 2.5rem;
+  margin-top: 1rem;
+  color: black;
+  background-color: white;
+  border: none;
+}
+.inputs button:hover {
+  cursor: pointer;
+}
+.inputs input::placeholder {
+  color: #939292;
+  padding: 0.2rem;
+}
+.inputs input:focus {
+  outline: none;
+  border-color: #4c4c4c;
+}
+.main {
+  margin-top: 4rem;
+}
+.main-top input {
+  width: 96%;
+  height: 2.5rem;
+  border: 1px solid #747474;
+  background-color: #111111;
+  color: white;
+  padding-right: 1rem;
+}
+.main-top input::placeholder {
+  color: #939292;
+  padding: 0.2rem;
+}
+.main-top input:focus {
+  outline: none;
+  border-color: #4c4c4c;
+}
+.main-bottom {
+  width: 96%;
+  margin-top: 3rem;
+}
+.main-bottom table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.main-bottom thead tr th {
+  color: white;
+  font-weight: 100;
+  padding: 0.6rem;
+}
+.main-bottom tbody tr td {
+  padding: 0.6rem;
+  color: white;
+}
+.main-bottom tbody tr td:nth-child(6) {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.edit-btns {
+  display: flex;
+  align-items: center;
+  color: white;
+  gap: 0.5rem;
+}
+.edit-btns i:hover {
+  cursor: pointer;
+}
+
+/* Define the starting animation */
+@keyframes startingAnimation {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Apply the starting animation to the body */
+body.animate-start {
+  animation: startingAnimation 1s ease-in-out;
+}

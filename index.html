@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <title>Student Management System</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>Student Management CRUD</h1>
+        <form class="inputs">
+          <input
+            id="name"
+            type="text"
+            name="name"
+            placeholder="Name"
+            required
+          />
+
+          <input
+            id="email"
+            type="email"
+            name="email"
+            placeholder="Email"
+            required
+          />
+
+          <input id="gpa" type="text" name="gpa" placeholder="GPA" required />
+
+          <input id="age" type="number" name="age" placeholder="Age" required />
+
+          <input
+            id="degree"
+            type="text"
+            name="degree"
+            placeholder="Degree"
+            required
+          />
+
+          <button id="button" type="button">Add Student</button>
+        </form>
+      </div>
+      <div class="main">
+        <div class="main-top">
+          <input
+            type="search"
+            name="search"
+            placeholder="Search By Name, email or degree"
+          />
+        </div>
+        <div class="main-bottom">
+          <table border="1" id="table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Student Name</th>
+                <th>Email</th>
+                <th>Age</th>
+                <th>GPA</th>
+                <th>Degree</th>
+              </tr>
+            </thead>
+            <tbody id="tBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
