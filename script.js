@@ -41,8 +41,8 @@ function displayFilteredStudents(filteredStudents) {
         <td>
             ${e.degree}
             <div class="edit-btns">
-            <i id="edit" class="ri-edit-box-line" onclick="editStudent(${e.id})"></i>
-            <i id="delete" class="ri-delete-bin-line" onClick="deleteStudent(${e.id})"></i>
+            <i id="edit" class="ri-edit-box-line" onclick="editStudent(${e.ID})"></i>
+            <i id="delete" class="ri-delete-bin-line" onClick="deleteStudent(${e.ID})"></i>
             </div>
         </td>
       </tr>`;
@@ -64,8 +64,8 @@ function displayStudents() {
             <td>
                 ${e.degree}
                 <div class="edit-btns">
-                <i id="edit" class="ri-edit-box-line" onclick="editStudent(${e.id})"></i>
-                <i id="delete" class="ri-delete-bin-line" onClick="deleteStudent(${e.id})"></i>
+                <i id="edit" class="ri-edit-box-line" onclick="editStudent(${e.ID})"></i>
+                <i ID="delete" class="ri-delete-bin-line" onClick="deleteStudent(${e.ID})"></i>
                 </div>
             </td>
           </tr>`;
@@ -129,15 +129,18 @@ function filterStudents() {
 // -----> delete student functionality start ------>
 
 function deleteStudent(id) {
-  studentsArray = studentsArray.filter((student) => student.id !== id);
+  studentsArray = studentsArray.filter((student) => student.ID !== id);
   displayFilteredStudents(studentsArray);
 }
 
-// -----> delete student functionality start ------>
+// -----> delete student functionality end ------>
+
+// -----> editing student functionality start ------>
+
 let currentEditingStudentId = null;
 
 function editStudent(id) {
-  let student = studentsArray.find((e) => e.id === id);
+  let student = studentsArray.find((e) => e.ID === id);
 
   document.getElementById("name").value = student.name;
   document.getElementById("age").value = student.age;
@@ -174,7 +177,7 @@ function updateStudentDetails(id) {
   const newDegree = document.getElementById("degree").value;
   const newEmail = document.getElementById("email").value;
 
-  let student = studentsArray.find((e) => e.id === id);
+  let student = studentsArray.find((e) => e.ID === id);
   student.name = newName;
   student.age = newAge;
   student.grade = newgrade;
@@ -196,7 +199,7 @@ function updateStudentDetails(id) {
 
   displayStudents();
 }
-// -----> delete student functionality start ------>
+// -----> editing student functionality end ------>
 
 document.addEventListener("DOMContentLoaded", function () {
   applyStartingAnimation();
