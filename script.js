@@ -109,6 +109,7 @@ function deleteStudent(id) {
 }
 
 // -----> delete student functionality start ------>
+let currentEditingStudentId = null;
 
 function editStudent(id) {
   let student = studentsArray.find((e) => e.id === id);
@@ -123,12 +124,22 @@ function editStudent(id) {
   addStudentBtn.style.backgroundColor = "black";
   addStudentBtn.style.color = "white";
   addStudentBtn.style.border = "1px solid #747474";
+
+  currentEditingStudentId = id;
+
   //removing the previous addStudent functionality.
   addStudentBtn.removeEventListener("click", addStudent);
 
-  addStudentBtn.addEventListener("click", function () {
-    updateStudentDetails(id);
-  });
+  addStudentBtn.addEventListener("click", updateCurrentStudent);
+}
+
+function updateCurrentStudent() {
+  // Check if there is a current editing student ID
+  if (currentEditingStudentId !== null) {
+    updateStudentDetails(currentEditingStudentId);
+  } else {
+    addStudent();
+  }
 }
 
 function updateStudentDetails(id) {
@@ -144,6 +155,19 @@ function updateStudentDetails(id) {
   student.gpa = newGpa;
   student.email = newEmail;
   student.degree = newDegree;
+
+  // Clear the form fields after adding a student
+  document.getElementById("name").value = "";
+  document.getElementById("age").value = "";
+  document.getElementById("gpa").value = "";
+  document.getElementById("degree").value = "";
+  document.getElementById("email").value = "";
+
+  currentEditingStudentId = null;
+
+  addStudentBtn.innerText = "Add Student";
+  addStudentBtn.style.backgroundColor = "white";
+  addStudentBtn.style.color = "black";
 
   displayStudents();
 }
