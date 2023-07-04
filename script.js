@@ -1,5 +1,30 @@
-let studentsArray = [];
-let lastId = 0;
+let studentsArray = [
+  {
+    ID: 1,
+    name: "Alice",
+    age: 21,
+    grade: "A",
+    degree: "Btech",
+    email: "alice@example.com",
+  },
+  {
+    ID: 2,
+    name: "Bob",
+    age: 22,
+    grade: "B",
+    degree: "MBA",
+    email: "bob@example.com",
+  },
+  {
+    ID: 3,
+    name: "Charlie",
+    age: 20,
+    grade: "C",
+    degree: "Arts",
+    email: "charlie@example.com",
+  },
+];
+let lastId = 4;
 const addStudentBtn = document.getElementById("button");
 
 function displayFilteredStudents(filteredStudents) {
@@ -8,11 +33,11 @@ function displayFilteredStudents(filteredStudents) {
 
   filteredStudents.forEach((e) => {
     let data = `<tr>
-        <td>${e.id}</td>
+        <td>${e.ID}</td>
         <td>${e.name}</td>
         <td>${e.email}</td>
         <td>${e.age}</td>
-        <td>${e.gpa}</td>
+        <td>${e.grade}</td>
         <td>
             ${e.degree}
             <div class="edit-btns">
@@ -31,11 +56,11 @@ function displayStudents() {
 
   studentsArray.forEach((e) => {
     let data = `<tr>
-            <td>${e.id}</td>
+            <td>${e.ID}</td>
             <td>${e.name}</td>
             <td>${e.email}</td>
             <td>${e.age}</td>
-            <td>${e.gpa}</td>
+            <td>${e.grade}</td>
             <td>
                 ${e.degree}
                 <div class="edit-btns">
@@ -53,15 +78,15 @@ function displayStudents() {
 function addStudent() {
   const name = document.getElementById("name").value;
   const age = document.getElementById("age").value;
-  const gpa = document.getElementById("gpa").value;
+  const grade = document.getElementById("grade").value;
   const degree = document.getElementById("degree").value;
   const email = document.getElementById("email").value;
 
   const student = {
-    id: lastId + 1,
+    ID: lastId + 1,
     name: name,
     age: age,
-    gpa: gpa,
+    grade: grade,
     degree: degree,
     email: email,
   };
@@ -72,7 +97,7 @@ function addStudent() {
   // Clear the form fields after adding a student
   document.getElementById("name").value = "";
   document.getElementById("age").value = "";
-  document.getElementById("gpa").value = "";
+  document.getElementById("grade").value = "";
   document.getElementById("degree").value = "";
   document.getElementById("email").value = "";
 
@@ -116,7 +141,7 @@ function editStudent(id) {
 
   document.getElementById("name").value = student.name;
   document.getElementById("age").value = student.age;
-  document.getElementById("gpa").value = student.gpa;
+  document.getElementById("grade").value = student.grade;
   document.getElementById("degree").value = student.degree;
   document.getElementById("email").value = student.email;
 
@@ -145,21 +170,21 @@ function updateCurrentStudent() {
 function updateStudentDetails(id) {
   const newName = document.getElementById("name").value;
   const newAge = document.getElementById("age").value;
-  const newGpa = document.getElementById("gpa").value;
+  const newgrade = document.getElementById("grade").value;
   const newDegree = document.getElementById("degree").value;
   const newEmail = document.getElementById("email").value;
 
   let student = studentsArray.find((e) => e.id === id);
   student.name = newName;
   student.age = newAge;
-  student.gpa = newGpa;
+  student.grade = newgrade;
   student.email = newEmail;
   student.degree = newDegree;
 
   // Clear the form fields after adding a student
   document.getElementById("name").value = "";
   document.getElementById("age").value = "";
-  document.getElementById("gpa").value = "";
+  document.getElementById("grade").value = "";
   document.getElementById("degree").value = "";
   document.getElementById("email").value = "";
 
@@ -181,3 +206,5 @@ function applyStartingAnimation() {
   // Add the 'animate-start' class to the body to trigger the starting animation
   document.body.classList.add("animate-start");
 }
+
+displayStudents();
